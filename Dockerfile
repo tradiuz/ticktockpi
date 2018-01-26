@@ -1,5 +1,5 @@
 FROM resin/armhf-alpine:latest
-RUN apk add --no-cache chrony
+RUN apk add --no-cache chrony supervisor
 WORKDIR /config
 EXPOSE 123/udp
 EXPOSE 323/udp
