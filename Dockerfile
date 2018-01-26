@@ -1,6 +1,7 @@
 FROM resin/armhf-alpine:latest
 RUN apk add --no-cache chrony
-WORKDIR /etc/chrony/
+WORKDIR /config
 EXPOSE 123/udp
 EXPOSE 323/udp
-CMD ["/usr/sbin/chronyd","-d"]
+ADD supervisor.conf /etc/supervisor.conf
+CMD ["supervisord","-c","/etc/supervisor.conf"]
